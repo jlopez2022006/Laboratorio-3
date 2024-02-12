@@ -9,7 +9,13 @@ class Server{
         this.port = process.env.PORT;
         this.alumnosPath = '/api/alumnos';
 
+        this.conectarDB();
         this.middlewares();
+
+    }
+
+    async conectarDB(){
+        await dbConnection();
     }
 
 
@@ -19,6 +25,8 @@ class Server{
         this.app.use(express.json());
     }
 
+
+    
 
     listen(){
         this.app.listen(this.port, () =>{
