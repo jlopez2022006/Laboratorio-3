@@ -1,0 +1,89 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Estudiante",
+    "dateExported": "2024-02-16T06:40:50.182Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "ff0e6d5b-b2a3-458c-8a78-eb49d17f9c32",
+            "colId": "5a86d7b2-3b82-4a73-8eca-3d636ac8937e",
+            "containerId": "",
+            "name": "estudiantePost",
+            "url": "localhost:3000/api/estudiante",
+            "method": "POST",
+            "sortNum": 5000,
+            "created": "2024-02-16T06:23:49.047Z",
+            "modified": "2024-02-16T06:40:17.268Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\": \"Ivan\",\n  \"correo\": \"ivan@kinal.edu\",\n  \"password\": \"1234567\",\n  \"curso\": \"Fisica\",\n  \"role\": \"STUDENT_ROLE\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "d679a7f1-03ce-48c3-b376-73eaaad7a676",
+            "colId": "5a86d7b2-3b82-4a73-8eca-3d636ac8937e",
+            "containerId": "",
+            "name": "estudianteGet",
+            "url": "localhost:3000/api/estudiante",
+            "method": "GET",
+            "sortNum": 7500,
+            "created": "2024-02-16T06:27:07.427Z",
+            "modified": "2024-02-16T06:28:02.766Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "7252d148-3c95-4714-bfa1-83a9daa1ed29",
+            "colId": "5a86d7b2-3b82-4a73-8eca-3d636ac8937e",
+            "containerId": "",
+            "name": "getEstudianteById",
+            "url": "localhost:3000/api/estudiante/65cf03519af25031cb5b4bab",
+            "method": "GET",
+            "sortNum": 8750,
+            "created": "2024-02-16T06:39:22.626Z",
+            "modified": "2024-02-16T06:40:25.954Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "b713dbaf-dd35-4e6e-9298-a38a0bb23e43",
+            "colId": "5a86d7b2-3b82-4a73-8eca-3d636ac8937e",
+            "containerId": "",
+            "name": "estudiantePut",
+            "url": "localhost:3000/api/estudiante/65cf0029e28919e37b0bc176",
+            "method": "PUT",
+            "sortNum": 10000,
+            "created": "2024-02-16T06:23:25.426Z",
+            "modified": "2024-02-16T06:34:47.640Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\":\"Ivan\",\n  \"correo\": \"ivan@gmail.com\",\n  \"password\": \"098923922\",\n  \"curso\": \"Matematica\",\n  \"role\": \"STUDENT_ROLE\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "21fd0767-b206-4fa8-ac66-6c2fb5129bbd",
+            "colId": "5a86d7b2-3b82-4a73-8eca-3d636ac8937e",
+            "containerId": "",
+            "name": "estudianteDelete",
+            "url": "localhost:3000/api/estudiante/65cf0029e28919e37b0bc176",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2024-02-16T06:30:24.099Z",
+            "modified": "2024-02-16T06:30:41.024Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
