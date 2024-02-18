@@ -18,6 +18,14 @@ const EstudianteSchema = Schema({
         type: String,
         require: [true, 'El curso es obligatorio']
     },
+    curso2: {
+        type: String,
+        require: [true, 'El curso es obligatorio']
+    },
+    curso3: {
+        type: String,
+        require: [true, 'El curso es obligatorio']
+    },
     img: {
         type: String
     },

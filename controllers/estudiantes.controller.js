@@ -2,15 +2,15 @@ const bcryptjs = require('bcryptjs');
 const Estudiante = require('../models/estudiante');
 
 const estudiantePost = async (req, res) => {
-    const { nombre, correo, password, curso, role } = req.body;
-    const estudiante = new Estudiante({ nombre, correo, password, curso, role });
+    const { nombre, correo, password, curso, curso2, curso3, role } = req.body;
+    const estudiante = new Estudiante({ nombre, correo, password, curso, curso2, curso3, role });
 
     const salt = bcryptjs.genSaltSync();
     console.log(password);
     estudiante.password = bcryptjs.hashSync(password, salt);
 
     await estudiante.save();
-    console.log({ nombre, correo, password, curso, role })
+    console.log({ nombre, correo, password, curso, curso2, curso3, role })
     res.status(202).json({
         estudiante
     });
