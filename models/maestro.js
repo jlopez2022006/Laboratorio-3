@@ -31,7 +31,7 @@ const MaestroSchema = Schema({
     },
 });
 
-MaestroSchemaSchema.methods.toJSON = function(){
+MaestroSchema.methods.toJSON = function(){
     const{ __v, password, _id, ...maestro} = this.toObject();
     maestro.uid = _id;
     return maestro;
