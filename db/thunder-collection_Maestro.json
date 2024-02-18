@@ -1,0 +1,89 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Maestro",
+    "dateExported": "2024-02-18T06:29:53.595Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "a817fb00-1d1d-4c97-aa14-bf87a61bc570",
+            "colId": "8e623736-fbc6-4f32-a4b5-ab9715bed753",
+            "containerId": "",
+            "name": "maestroPost",
+            "url": "localhost:3000/api/maestro",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-02-18T06:19:42.282Z",
+            "modified": "2024-02-18T06:28:18.874Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\":\"Juan\",\n  \"correo\": \"juan@kinal.edu\",\n  \"password\": \"123456\",\n  \"curso\": \"Matematicas\",\n  \"role\": \"TEACHER_ROLE\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "94ecbc7e-2ed0-44d6-8f66-9e10074f07d2",
+            "colId": "8e623736-fbc6-4f32-a4b5-ab9715bed753",
+            "containerId": "",
+            "name": "maestroGet",
+            "url": "localhost:3000/api/maestro",
+            "method": "GET",
+            "sortNum": 15000,
+            "created": "2024-02-18T06:25:50.664Z",
+            "modified": "2024-02-18T06:26:44.920Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "b1c82711-4270-4f5c-9523-5fecc5972e73",
+            "colId": "8e623736-fbc6-4f32-a4b5-ab9715bed753",
+            "containerId": "",
+            "name": "getMaestroById",
+            "url": "localhost:3000/api/maestro/65d1a382d62034c5aac6231d",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-02-18T06:27:36.819Z",
+            "modified": "2024-02-18T06:28:27.183Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "b25d2055-3c8b-4a5a-9a6d-f080249feb89",
+            "colId": "8e623736-fbc6-4f32-a4b5-ab9715bed753",
+            "containerId": "",
+            "name": "maestroPut",
+            "url": "localhost:3000/api/maestro/65d1a382d62034c5aac6231d",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2024-02-18T06:28:37.162Z",
+            "modified": "2024-02-18T06:29:14.486Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\":\"Jeshua\",\n  \"correo\": \"jeshua@kinal.edu\",\n  \"password\": \"123456\",\n  \"curso\": \"Matematicas\",\n  \"role\": \"TEACHER_ROLE\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "3ba155f6-9123-4907-b955-7f3ec49682a9",
+            "colId": "8e623736-fbc6-4f32-a4b5-ab9715bed753",
+            "containerId": "",
+            "name": "maestroDelete",
+            "url": "localhost:3000/api/maestro/65d1a382d62034c5aac6231d",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2024-02-18T06:29:32.649Z",
+            "modified": "2024-02-18T06:29:42.725Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
