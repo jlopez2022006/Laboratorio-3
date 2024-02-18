@@ -1,6 +1,7 @@
 const Estudiante = require('../models/estudiante');
 const Curso = require('../models/curso');
 const Role = require('../models/rol');
+const Maestro = require('../models/maestro');
 
 
 const esRoleValido = async (role = '') => {
@@ -18,17 +19,17 @@ const existeEmail = async (correo = '') => {
     }
 }
 
-const existeCurso = async (nombre = '') => {
-    const existeCurso = await Curso.findOne({nombre});
-    if(existeCurso){
-        throw new Error (`El curso ${nombre} ya esta registrado`);
-    }
-}
-
 const existeEstudianteById = async (id = '') => {
     const existeEstudiante = await Estudiante.findOne({id});
     if(existeEstudiante){
         throw  new Error(`El estudiante con el ${ id } no existe`);
+    }
+}
+
+const existeCurso = async (nombre = '') => {
+    const existeCurso = await Curso.findOne({nombre});
+    if(existeCurso){
+        throw new Error (`El curso ${nombre} ya esta registrado`);
     }
 }
 
@@ -39,13 +40,26 @@ const existeCursoById = async (id = '') => {
     }
 }
 
+const existeEmailMaestro = async (correo = '') => {
+    const existeEmailMaestro = await Maestro.findOne({correo});
+    if(existeEmailMaestro){
+        throw new Error (`El correo ${correo} ya esta registrado`);
+    }
+}
 
-
+const existeMaestroById = async (id = '') => {
+    const existeMaestro = await Maestro.findOne({id});
+    if(existeMaestro){
+        throw  new Error(`El maestro con el ${ id } no existe`);
+    }
+}
  
 module.exports = {
     esRoleValido,
     existeEmail,
     existeEstudianteById,
     existeCurso,
-    existeCursoById
+    existeCursoById,
+    existeEmailMaestro,
+    existeMaestroById
 }
