@@ -10,6 +10,9 @@ const {
     maestroPut,
     maestroDelete } = require('../controllers/maestros.controller');
 
+const { validarJWT } = require('../middlewares/validar-jwt');
+const { Role } = require('../middlewares/validar-roles');
+
 const router = Router();
 
 router.get("/", maestroGet);
@@ -19,13 +22,15 @@ router.get(
     [
         check('id', 'No es un id valido').isMongoId(),
         check('id').custom(existeMaestroById),
-        validarCampos, 
+        validarCampos,
     ], getMaestroById
 );
 
 router.put(
     "/:id",
     [
+        validarJWT,
+        Role('TEACHER_ROLE'),
         check('id', 'No es un id válido').isMongoId(),
         check('id').custom(existeMaestroById),
         check("role").custom(esRoleValido),
@@ -36,6 +41,8 @@ router.put(
 router.post(
     "/",
     [
+        validarJWT,
+        Role('TEACHER_ROLE'),
         check("nombre", "Nombre no puede estar vacio").not().isEmpty(),
         check("password", "El password debe de ser mayor a 6 caracteres").isLength({ min: 6 }),
         check("correo", "Este no es un correo valido").isEmail(),
@@ -49,6 +56,8 @@ router.post(
 router.delete(
     "/:id",
     [
+        validarJWT,
+        Role('TEACHER_ROLE'),
         check('id', 'No es un id válido').isMongoId(),
         check('id').custom(existeEmailMaestro),
         validarCampos,

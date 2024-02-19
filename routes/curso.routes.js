@@ -7,8 +7,10 @@ const {
     cursoPost,
     cursoGet,
     getCursoById,
-    cursoPut, 
-    cursoDelete} = require('../controllers/cursos.controller');
+    cursoPut,
+    cursoDelete } = require('../controllers/cursos.controller');
+const { validarJWT } = require('../middlewares/validar-jwt');
+const { Role } = require('../middlewares/validar-roles');
 
 const router = Router();
 
@@ -18,6 +20,8 @@ router.get("/", cursoGet);
 router.post(
     "/",
     [
+        validarJWT,
+        Role('TEACHER_ROLE'),
         check("nombre", "Nombre no puede estar vacio").not().isEmpty(),
         check("maestro", "Maestro no puede estar vacio").not().isEmpty(),
         check("maestro", "Maestro no puede estar vacio").not().isEmpty(),
@@ -38,6 +42,8 @@ router.get(
 router.put(
     "/:id",
     [
+        validarJWT,
+        Role('TEACHER_ROLE'),
         check('id', 'No es un id válido').isMongoId(),
         check('id').custom(existeCursoById),
         validarCampos,
@@ -48,6 +54,8 @@ router.put(
 router.delete(
     "/:id",
     [
+        validarJWT,
+        Role('TEACHER_ROLE'),
         check('id', 'No es un id válido').isMongoId(),
         check('id').custom(existeCursoById),
         validarCampos,

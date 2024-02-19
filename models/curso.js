@@ -12,7 +12,7 @@ const CursoSchema = Schema({
     },
     descripcion: {
         type: String,
-        require: [true, 'La descripcion debe de ser obligatorio']
+        require: [true, 'La descripcion debe de ser obligatorio'],
     },
     img: {
         type: String

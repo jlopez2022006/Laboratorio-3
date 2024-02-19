@@ -1,7 +1,10 @@
 const { Router } = require('express');
 const { check } = require('express-validator');
+
 const { existeEmail, esRoleValido, existeEstudianteById } = require('../helpers/db-validators');
 const { validarCampos } = require('../middlewares/validarCampos');
+
+const Curso = require('../models/curso');
 
 const {
     estudiantePost,
@@ -18,16 +21,35 @@ router.get("/", estudianteGet);
 router.post(
     "/",
     [
-        check("nombre", "Nombre no puede estar vacio").not().isEmpty(),
-        check("password", "El password debe de ser mayor a 6 caracteres").isLength({ min: 6 }),
-        check("correo", "Este no es un correo valido").isEmail(),
-        check("curso", "debe ingresar un curso").not().isEmpty(),
-        check("curso2", "debe ingresar un curso").not().isEmpty(),
-        check("curso3", "debe ingresar un curso").not().isEmpty(),
+        check("nombre", "Nombre no puede estar vacío").not().isEmpty(),
+        check("password", "El password debe ser mayor a 6 caracteres").isLength({ min: 6 }),
+        check("correo", "Este no es un correo válido").isEmail(),
+        check("curso", "Debe ingresar un curso").custom(async (value) => {
+            const cursoExistente = await Curso.findOne({ nombre: value });
+            if (!cursoExistente) {
+                throw new Error("El curso no existe en la base de datos");
+            }
+            return true;
+        }),
+        check("curso2", "Debe ingresar un curso").custom(async (value) => {
+            const cursoExistente = await Curso.findOne({ nombre: value });
+            if (!cursoExistente) {
+                throw new Error("El curso no existe en la base de datos");
+            }
+            return true;
+        }),
+        check("curso3", "Debe ingresar un curso").custom(async (value) => {
+            const cursoExistente = await Curso.findOne({ nombre: value });
+            if (!cursoExistente) {
+                throw new Error("El curso no existe en la base de datos");
+            }
+            return true;
+        }),
         check("correo").custom(existeEmail),
         check("role").custom(esRoleValido),
         validarCampos,
-    ], estudiantePost
+    ],
+    estudiantePost
 );
 
 router.get(
