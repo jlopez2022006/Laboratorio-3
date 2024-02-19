@@ -14,10 +14,6 @@ const MaestroSchema = Schema({
         type: String,
         require: [true, 'El password es obligatorio']
     },
-    curso: {
-        type: String,
-        require: [true, 'El curso es obligatorio']
-    },
     img: {
         type: String
     },

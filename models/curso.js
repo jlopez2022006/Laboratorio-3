@@ -1,4 +1,6 @@
 const { Schema, model } = require('mongoose');
+const Maestro = require('../models/maestro');
+
 
 const CursoSchema = Schema({
     nombre: {
@@ -8,7 +10,14 @@ const CursoSchema = Schema({
     },
     maestro: {
         type: String,
-        require: [true, 'El maestro es obligatorio'],
+        required: [true, 'El maestro es obligatorio'],
+        validate: {
+            validator: async function (value) {
+                const maestroExistente = await Maestro.findOne({ nombre: value });
+                return maestroExistente !== null;
+            },
+            message: 'El maestro debe existir en el modelo Maestro',
+        },
     },
     descripcion: {
         type: String,
